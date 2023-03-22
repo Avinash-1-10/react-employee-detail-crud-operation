@@ -1,45 +1,11 @@
-import React, { useState } from "react";
+import { useContext } from "react";
 import Employee from "./Employee";
+import { EmployeeContext } from "../contexts/EmployeeContext";
+
+
 
 const EmployeeList = () => {
-  const [employees, setEmployees] = useState([
-    {
-      id: 1,
-      name: "John Doe",
-      email: "johndoe@example.com",
-      address: "123 Main St, Anytown USA",
-      phone: "555-1234",
-    },
-    {
-      id: 2,
-      name: "Jane Smith",
-      email: "janesmith@example.com",
-      address: "456 Oak Ave, Another City",
-      phone: "555-5678",
-    },
-    {
-      id: 3,
-      name: "Bob Johnson",
-      email: "bjohnson@example.com",
-      address: "789 Elm St, Smalltown",
-      phone: "555-9012",
-    },
-    {
-      id: 4,
-      name: "Samantha Lee",
-      email: "slee@example.com",
-      address: "321 Pine St, Ruralville",
-      phone: "555-3456",
-    },
-    {
-      id: 5,
-      name: "Tom Wilson",
-      email: "twilson@example.com",
-      address: "654 Birch Ave, Suburbia",
-      phone: "555-7890",
-    },
-  ]);
-
+    const {employees} = useContext(EmployeeContext)
   return (
     <>
       <div className="table-title">

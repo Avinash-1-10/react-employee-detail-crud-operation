@@ -1,7 +1,6 @@
 import React from "react";
 
 const Employee = ({employee}) => {
-    console.log(employee)
   return (
     <>
       <td>{employee.name}</td>
