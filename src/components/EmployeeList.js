@@ -1,11 +1,18 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Employee from "./Employee";
 import { EmployeeContext } from "../contexts/EmployeeContext";
-
-
+import { Button, Modal } from "react-bootstrap";
+import AddForm from "./AddForm";
 
 const EmployeeList = () => {
-    const {employees} = useContext(EmployeeContext)
+  const { employees } = useContext(EmployeeContext);
+
+  const [show, setShow] = useState(false)
+
+
+  const handleShow = ()=> setShow(true)
+  const handleClose = ()=> setShow(false)
+
   return (
     <>
       <div className="table-title">
@@ -16,14 +23,14 @@ const EmployeeList = () => {
             </h2>
           </div>
           <div className="col-sm-6">
-            <a
-              href="#addEmployeeModal"
+            <Button
+            onClick={handleShow}
               className="btn btn-success"
               data-toggle="modal"
             >
               <i className="material-icons">&#xE147;</i>{" "}
               <span>Add New Employee</span>
-            </a>
+            </Button>
           </div>
         </div>
       </div>
@@ -45,6 +52,17 @@ const EmployeeList = () => {
           ))}
         </tbody>
       </table>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Add Employee</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <AddForm />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>Close Button</Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 };
