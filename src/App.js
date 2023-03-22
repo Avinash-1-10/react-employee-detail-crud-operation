@@ -3,6 +3,7 @@ import EmployeeList from "./components/EmployeeList";
 import EmployeeContextProvider from "./contexts/EmployeeContext";
 
 const App = () => {
+  console.log('hi')
   return (
     <>
       <div className="container-xl">

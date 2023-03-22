@@ -57,7 +57,7 @@ const EmployeeList = () => {
           <Modal.Title>Add Employee</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <AddForm />
+          <AddForm handleClose={handleClose}/>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>Close Button</Button>

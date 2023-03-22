@@ -7,7 +7,7 @@ export const EmployeeContext = createContext()
 
 const EmployeeContextProvider =(props)=>{
     console.log()
-    const [employees] = useState([
+    const [employees, setEmployees] = useState([
         {
           id: uuidv4(),
           name: "John Doe",
@@ -44,10 +44,12 @@ const EmployeeContextProvider =(props)=>{
           phone: "555-7890",
         },
       ]);
-      console.log(employees)
+      const addEmployee = (name, email, address, phone)=>{
+        setEmployees([...employees, {id:uuidv4(), name, email, address, phone}])
+      }
     return(
         <>
-         <EmployeeContext.Provider value={{employees}}>
+         <EmployeeContext.Provider value={{employees, addEmployee}}>
                 {props.children}
          </EmployeeContext.Provider>
 
