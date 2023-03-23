@@ -3,7 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { EmployeeContext } from "../contexts/EmployeeContext";
 import { useContext } from "react";
 
-const AddForm = ({handleClose}) => {
+const AddForm = () => {
     const {addEmployee} = useContext(EmployeeContext)
     const [newEmployee, setNewEmployee] = useState({name:'', email:'', address:'', phone:''});
 
@@ -17,8 +17,6 @@ const AddForm = ({handleClose}) => {
     const handleSubmit = (e)=>{
         e.preventDefault();
         addEmployee(name, email, address, phone)
-        handleClose()
-
     }
   return (
     <>
